@@ -115,13 +115,10 @@ export default {
       this.loading = true;
       DataService.getCategory(this.path).then(data => {
         this.category = this.category.concat(data.data.recipes);
-        console.log(this.category.length);
         let loadMoreCategory = data.data.recipes;
-        console.log(loadMoreCategory.length);
         loadMoreCategory.forEach(element => {
           this.allId.push(element.id);
         });
-        console.log(this.allId.length);
         this.checkIfIsSaved(this.allId);
         this.loading = false;
       });
